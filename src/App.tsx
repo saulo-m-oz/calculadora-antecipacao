@@ -1,15 +1,17 @@
-import { Container } from "./components/common/container";
-import { FormComponent } from "./components/forms";
+import {Container} from "./components/common/container";
+import {FormComponent} from "./components/forms";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
-  return (
-    <div className="App">
-      <Container>
-        <h1>HOME</h1>
-        <FormComponent />
-      </Container>
-    </div>
-  );
+    return (
+        <QueryClientProvider client={queryClient}>
+            <Container className="h-screen p-3">
+                <FormComponent/>
+            </Container>
+        </QueryClientProvider>
+    );
 }
 
 export default App;
